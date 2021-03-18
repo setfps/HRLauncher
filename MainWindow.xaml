@@ -1,0 +1,509 @@
+﻿<Window xmlns:customcontrols="clr-namespace:HRLauncher.customcontrols"  x:Class="HRLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRLauncher"
+        mc:Ignorable="d" x:Name="this"
+        Title="Лаунчер" Height="350" Width="800" FontSize="15" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <!--Initializing our resource dictionary which contains all our app icons-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--I will drop the link for this icons.xaml and other images in the link in description..-->
+                <ResourceDictionary Source="/assets/icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <!--Our window background with round corners-->
+    <Border CornerRadius="20" Background="White" Margin="0,0,30,0" Name="border1">
+        <Grid Margin="0,0,31,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="330"/>
+            </Grid.ColumnDefinitions>
+
+            <!--a thin separator line-->
+            <Line HorizontalAlignment="Right" Y1="0" Y2="{Binding Height, ElementName=this}" StrokeThickness=".5" Stroke="#E5E7E6"/>
+
+            <!--our logo-->
+            <!--#region Logo-->
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,50,52,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"
+                           Margin="16,-33,16,33" Grid.ColumnSpan="2">
+                    <Run Text="Halloween"/>
+                    <Run Foreground="#FFE86C05" FontWeight="Bold" Text="Rust"/>
+                </TextBlock>
+                <TextBlock
+                    FontWeight="SemiBold"
+                    VerticalAlignment="Center"
+                    Margin="175,-33,-592,33" Grid.Column="1"><Run Text="Информация"/><Run Text=" "/></TextBlock>
+            </Grid>
+            <!--#endregion-->
+
+            <!--Now lets design our menu button-->
+            <!--#region Menu Buttons-->
+            <!--#endregion-->
+
+            <!--#region updated course button-->
+            <Button FontWeight="Bold" Click="Button_Click" Height="52" Margin="20,115,30,183">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Height"  Value="53"/>
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="Margin" Value="0,65,0,0"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="48"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border CornerRadius="10"
+                                                Height="28"
+                                                Width="28"
+                                                 Background="#FFE86C05"
+                                                HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center">
+                                                <Path Data="{StaticResource light}" 
+                                                      Width="13" 
+                                                      Height="13" 
+                                                      Fill="White" 
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      Stretch="Uniform"/>
+                                            </Border>
+                                            <Grid Grid.Column="1">
+                                                <TextBlock HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center" RenderTransformOrigin="0.498,0.771" Margin="-3,18,6,0">
+                                                    <Run Text="Решение проблем" 
+                                                         FontSize="11" 
+                                                         FontWeight="Bold"/>
+                                                    <LineBreak/>
+                                                </TextBlock>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!--#endregion-->
+            <Border CornerRadius="12" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="7,58,0,0" VerticalAlignment="Top" Width="160">
+                <Border.Background>
+                    <ImageBrush ImageSource="/assets/1.jpg" x:Name="NewsImage_1" Stretch="UniformToFill"/>
+                </Border.Background>
+                <Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,21,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle 
+                                                RadiusX="10" 
+                                                RadiusY="10" 
+                                                Height="28" 
+                                                Width="28" 
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                            <Rectangle.Fill>
+                                <ImageBrush 
+                                                        ImageSource="/assets/user1.jpg"
+                                                        Stretch="UniformToFill"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Grid Grid.Column="1">
+                            <TextBlock Margin="10,0,0,0" HorizontalAlignment="Left"
+                                                           VerticalAlignment="Center" Foreground="White">
+                                                    <Run Text="Новая новость" 
+                                                         FontSize="11" 
+                                                         FontWeight="Bold"/>
+                                                    <LineBreak/>
+                                                    <Run 
+                                                        Text="@setfps" 
+                                                         FontSize="8" 
+                                                         FontWeight="SemiBold"/>
+                            </TextBlock>
+                        </Grid>
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,60,0,0">
+                        <Rectangle Height="21" RadiusX="8" RadiusY="8" Fill="#FFF7542E" Margin="-15,-4,-7,9"/>
+                        <TextBlock HorizontalAlignment="Center" x:Name="TimeOnFirstNews" VerticalAlignment="Center" Foreground="White" FontWeight="SemiBold" FontSize="8" Text="47 mins ago" Margin="-8,1,-1,15" Width="50"/>
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Height="66" Width="177">
+                        <Rectangle RadiusX="8" RadiusY="8" Fill="White" Opacity=".1"/>
+                        <TextBlock HorizontalAlignment="Center" Name="FirstNews_Text"  VerticalAlignment="Center" TextWrapping="Wrap" Foreground="White" FontSize="12" Margin="14,3,17,-24" Width="146" Height="87" ><Run Text="Я сегодня покакал"/><LineBreak/><Run Text="Открытие серва 11 числа "/></TextBlock>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!--Course points & Completion progress-->
+            <Grid Margin="25,545,25,95">
+                <!--#region Course points-->
+                <Border CornerRadius="10" 
+                    Background="WhiteSmoke"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Height="94" 
+                    Width="70" Margin="81,-335,-1,241">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21*"/>
+                            <RowDefinition Height="74*"/>
+                        </Grid.RowDefinitions>
+                        <Path Data="{StaticResource medal}" 
+                          Fill="#FFF7542E"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          Height="16"
+                          Stretch="Uniform"
+                          Margin="12,12,0,0" Grid.RowSpan="2"/>
+                        <TextBlock HorizontalAlignment="Left" 
+                               VerticalAlignment="Bottom"
+                               Margin="7,0,0,15" Grid.Row="1">
+                        <Run Text="100" FontWeight="Bold" FontSize="12"/>
+                        <LineBreak/>
+                        <Run Foreground="#FFBEBEBE" Text="макс. кол-во" FontSize="10"/>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region progress-->
+                <Border CornerRadius="10" 
+                    Background="WhiteSmoke"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Height="96" 
+                    Width="70" Margin="-4,-337,84,241">
+                    <Grid>
+                        <Path Data="{StaticResource progress}" 
+                          Fill="#FFF7542E"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          Height="16"
+                          Stretch="Uniform"
+                          Margin="12,12,0,0"/>
+                        <TextBlock HorizontalAlignment="Left" Name="Text_online"
+                               VerticalAlignment="Bottom"
+                               Margin="12,0,0,27">
+                        <Run Text="48" FontWeight="Bold" FontSize="12"/>
+                        <LineBreak/>
+                        <Run Foreground="#FFBEBEBE" Text="человек" FontSize="10"/>
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Left" x:Name="Text_online_Copy"
+                            VerticalAlignment="Bottom"
+                            Margin="12,0,0,15"><LineBreak/><Run Foreground="#FFBEBEBE" Text="человек" FontSize="10"/></TextBlock>
+                    </Grid>
+                </Border>
+                <!--#endregion-->
+            </Grid>
+            <!--User profile button-->
+            <!--#region User prof. button-->
+            <!--#endregion-->
+
+            <!--#region Streaming Courses-->
+            <!--Streaming status buttons-->
+            <UniformGrid Grid.Column="1" Columns="9" Margin="45,93,16,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+            <!--#endregion-->
+
+            <!--#region Cards-->
+            <!--#endregion-->
+
+            <!--#region TopTutors-->
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch"
+                       VerticalAlignment="Bottom" Margin="55,0,25,195">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <!--list of tutors-->
+            <!--#endregion-->
+
+            <!--searchbox-->
+            <Grid Grid.Column="2"
+                HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                Margin="24,58,51,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="-227,213,85,-213" Name="ProgressBar_Text">
+                    <Run FontWeight="Bold" Text="Process"/>
+                    <Run Text=" Update"/>
+                </TextBlock>
+                <TextBlock Margin="-405,123,405,-124"><Run FontWeight="Bold" Text="Текущая"/><Run Text=" "/><Run Text=" статистика"/></TextBlock>
+            </Grid>
+
+            <!--#region Searchbox-->
+            <Grid Grid.Column="2" Margin="24,93,51,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="54"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <!--#endregion-->
+            <Button Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="332,3,-19,0" VerticalAlignment="Top" Width="17" Click="Button_Click_Close" Height="17" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.Column="2">
+                <Button.Background>
+                    <ImageBrush ImageSource="assets/Х.png" Stretch="None"/>
+                </Button.Background>
+            </Button>
+            <!--Cards-->
+            <!--#region Special Offers-->
+            <Button FontWeight="Bold" Click="Button_Click1" Height="52" Margin="20,58,30,240" Content="dd" RenderTransformOrigin="0.5,0.474">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Height"  Value="53"/>
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="Margin" Value="0,65,0,0"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="48"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border CornerRadius="10"
+                                                Height="28"
+                                                Width="28"
+                                                Background="#FFE86C05"
+                                                HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center">
+                                                <Path Data="{StaticResource light}" 
+                                                    Width="13" 
+                                                    Height="13" 
+                                                    Fill="White" 
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Stretch="Uniform"/>
+                                            </Border>
+                                            <Grid Grid.Column="1">
+                                                <TextBlock HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center" RenderTransformOrigin="0.498,0.771" Margin="0,17,56,0"><Run Text="Магазин" 
+                                                        FontSize="11" 
+                                                        FontWeight="Bold"/><LineBreak/></TextBlock>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button FontWeight="Bold" Click="Button_Click_playgame" Height="52" Margin="200,275,-20,23" Grid.Column="2" Name="testknopka" Content="Сучка">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Height"  Value="53"/>
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="Margin" Value="0,65,0,0"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="48"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border CornerRadius="10"
+                                                Height="28"
+                                                Width="28"
+                                                Background="#FFE86C05"
+                                                HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center">
+                                                <Path Data="{StaticResource light}" 
+                                                    Width="13" 
+                                                    Height="13" 
+                                                    Fill="White" 
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Stretch="Uniform"/>
+                                            </Border>
+                                            <Grid Grid.Column="1">
+                                                <TextBlock HorizontalAlignment="Center" x:Name="NicknameTxt"
+                                                    VerticalAlignment="Center" RenderTransformOrigin="0.498,0.771" Margin="-3,18,6,0"><Run Text="Запуск игры" 
+                                                        FontSize="11" 
+                                                        FontWeight="Bold"/><LineBreak/></TextBlock>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="5,296,0,0" VerticalAlignment="Top" Width="229" Grid.ColumnSpan="2" Name="ProgressBar_sam" Foreground="#FFE86C05"/>
+            <Border CornerRadius="12" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="193,58,0,0" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2">
+                <Border.Background>
+                    <ImageBrush ImageSource="assets/2.jpg" Stretch="UniformToFill"/>
+                </Border.Background>
+                <Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,21,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle 
+                            RadiusX="10" 
+                            RadiusY="10" 
+                            Height="28" 
+                            Width="28" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Rectangle.Fill>
+                                <ImageBrush 
+                                    ImageSource="assets/user1.jpg"
+                                    Stretch="UniformToFill"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Grid Grid.Column="1">
+                            <TextBlock Margin="10,0,0,0" HorizontalAlignment="Left"
+                                VerticalAlignment="Center" Foreground="White"><Run Text="Новая новость" 
+                                    FontSize="11" 
+                                    FontWeight="Bold"/><LineBreak/><Run 
+                                    Text="@setfps" 
+                                    FontSize="8" 
+                                    FontWeight="SemiBold"/></TextBlock>
+                        </Grid>
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,60,0,0">
+                        <Rectangle Height="21" RadiusX="8" RadiusY="8" Fill="#FFF7542E" Margin="-15,-4,-7,9"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Name ="TimeOnSecondNews" Foreground="White" FontWeight="SemiBold" FontSize="8" Text="120 mins ago" Margin="-8,1,-1,15" Width="50"/>
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Height="66" Width="177">
+                        <Rectangle RadiusX="8" RadiusY="8" Fill="White" Opacity=".1"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Name="TextOnSecondNews" TextWrapping="Wrap" Foreground="White" Margin="13,3,10,-1" FontSize="12" Width="154" Height="64" ><Run Text="Всем привет"/><LineBreak/><Run Text="Меня зовут Влад А4 "/></TextBlock>
+                    </Grid>
+                </Grid>
+            </Border>
+            <Button FontWeight="Bold" Click="Button_Click_playrprofile" Height="33" Margin="21,312,25,5" x:Name="profileknopka" Content="" Width="154">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Height"  Value="53"/>
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="Margin" Value="0,65,0,0"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="48"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border CornerRadius="10"
+                                                Height="20"
+                                                Width="20"
+                                                Background="#FF05E8B4"
+                                                HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center" Margin="5,3,23,3">
+                                                <Path Data="{StaticResource home}" 
+                                                    Width="13" 
+                                                    Height="13" 
+                                                    Fill="White" 
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Stretch="Uniform"/>
+                                            </Border>
+                                            <Grid Grid.Column="1"/>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Border CornerRadius="12" Grid.Column="2" HorizontalAlignment="Left" Height="200" Margin="169,58,0,0" VerticalAlignment="Top" Width="160">
+                <Border.Background>
+                    <ImageBrush ImageSource="assets/4.jpg" Stretch="UniformToFill"/>
+                </Border.Background>
+                <Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,21,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle 
+                            RadiusX="10" 
+                            RadiusY="10" 
+                            Height="28" 
+                            Width="28" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Rectangle.Fill>
+                                <ImageBrush 
+                                    ImageSource="assets/user1.jpg"
+                                    Stretch="UniformToFill"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Grid Grid.Column="1">
+                            <TextBlock Margin="10,0,0,0" HorizontalAlignment="Left"
+                                VerticalAlignment="Center" Foreground="White"><Run Text="Новая новость" 
+                                    FontSize="11" 
+                                    FontWeight="Bold"/><LineBreak/><Run 
+                                    Text="@setfps" 
+                                    FontSize="8" 
+                                    FontWeight="SemiBold"/></TextBlock>
+                        </Grid>
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,60,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="16*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Height="21" RadiusX="8" RadiusY="8" Fill="#FFF7542E" Margin="-15,-4,-7,9" Grid.ColumnSpan="2"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Name="TimeTextThree" Foreground="White" FontWeight="SemiBold" FontSize="8" Text="300 mins ago" Margin="-8,3,-4,18" Width="53" Grid.ColumnSpan="2"/>
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Height="66" Width="177">
+                        <Rectangle RadiusX="8" RadiusY="8" Fill="White" Opacity=".1"/>
+                        <TextBlock HorizontalAlignment="Center" Name="Text_NewsThree" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="White" FontSize="12" Height="66" Margin="16,1,26,-1" Width="135" ><Run Text="Демонстрация работы"/><LineBreak/><Run Text="Лаунчера "/></TextBlock>
+                    </Grid>
+                </Grid>
+            </Border>
+            <TextBlock HorizontalAlignment="Center" x:Name="TextName" VerticalAlignment="Center" RenderTransformOrigin="0.498,0.771" Margin="49,320,29,-2" Height="32" Width="122"><Run x:Name="NameName" Text="%DefaultName%" FontSize="7" FontWeight="Bold"/><LineBreak/></TextBlock>
+            <!--#endregion-->
+        </Grid>
+    </Border>
+</Window>
